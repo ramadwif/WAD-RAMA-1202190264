@@ -9,6 +9,18 @@
     <title>HOME</title>
   </head>
   <body>
+    <?php
+    $gedung = [
+        "Gedung1" => "Nusantara Hall",
+        "Gedung2" => "Garuda Hall",
+        "Gedung3" => "Gedung Serba Guna",
+    ];
+    $harga_gedung = [
+        "Harga1" => 2000,
+        "Harga2" => 1000,
+        "Harga3" => 500,
+    ]
+    ?>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +29,10 @@
           <div class="collapse navbar-collapse" style="justify-content: center;" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="HOME.php#HOME" >Home</a>
+                <a class="nav-link" href="HOME.php" >Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Booking.php#Booking" >Booking</a>
+                <a class="nav-link" href="Booking.php" >Booking</a>
               </li>
               </li>
             </ul>
@@ -40,9 +52,9 @@
         <div class="card">
           <img src="https://london.bridestory.com/images/c_fill,dpr_1.0,f_auto,fl_progressive,pg_1,q_80,w_680/v1/assets/IMG_0483_hvxavm/ice-indonesia-convention-exhibition_wedding-at-ice-bsd1487580049_4.webp" alt="nusantara">
           <div class="card-body">
-            <h5 class="card-title">Nusantara Hall</h5>
+            <h5 class="card-title"><?= $gedung["Gedung1"] ?></h5>
             <p class="card-text" style="color: gray">
-              $2000 / Hour
+              $<?= $harga_gedung["Harga1"] ?> / Hour
               <br>
               5000 Capacity
             </p>
@@ -56,7 +68,9 @@
     </ul>
   
     <div class="card-body text-center" style="background-color:rgb(244, 244, 244);">
-      <a href="Booking.php#Booking" class="card-link btn btn-primary ">Book Now</a>
+      <form action="booking.php" method="POST">
+        <button type="submit" name="book" class="btn btn-primary" value="Nusantara Hall">Book Now</button>
+      </form>
     </div>   
     </div> 
     </div> 
@@ -65,9 +79,9 @@
         <div class="card">
           <img src="https://alexandra.bridestory.com/image/upload/assets/icegaruda00008-ry-SmBt3V.jpg" alt="garuda">
           <div class="card-body">
-            <h5 class="card-title">Garuda Hall</h5>
+            <h5 class="card-title"><?= $gedung["Gedung2"] ?></h5>
             <p class="card-text" style="color: gray">
-              $1000 / Hour
+              $<?= $harga_gedung["Harga2"] ?> / Hour
               <br>
               2000 Capacity
             </p>
@@ -81,7 +95,9 @@
     </ul>
   
     <div class="card-body text-center" style="background-color:rgb(244, 244, 244);">
-      <a href="Booking.php#Booking" class="card-link btn btn-primary ">Book Now</a>
+      <form action="booking.php" method="POST">
+        <button type="submit" name="book" class="btn btn-primary" value="Garuda Hall">Book Now</button>
+      </form>
     </div>   
     </div> 
     </div> 
@@ -90,9 +106,9 @@
         <div class="card">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1BH8uEENUhw3U_K1smIQhBJ1Gvv1bAfkP6Q&usqp=CAU" alt="serbaguna"/>
           <div class="card-body">
-            <h5 class="card-title">Gedung Serba Guna</h5>
+            <h5 class="card-title"><?= $gedung["Gedung3"] ?></h5>
             <p class="card-text" style="color: gray">
-              $5000 / Hour
+              $<?= $harga_gedung["Harga3"] ?>/ Hour
               <br>
               500 Capacity
             </p>
@@ -104,9 +120,10 @@
       <li class="list-group-item" id="no"><b style="color:red;">No Cleaning Service</b></li>
       <li class="list-group-item" id="yes"><b style="color: tomato;">Covid-19 Health Protocol</b></li>
     </ul>
-  
-      <div class="card-body text-center" style="background-color:rgb(244, 244, 244);">
-      <a href="Booking.php#Booking" class="card-link btn btn-primary ">Book Now</a>
+    <div class="card-body text-center" style="background-color:rgb(244, 244, 244);">
+      <form action="booking.php" method="POST">
+        <button type="submit" name="book" class="btn btn-primary" value="Gedung Serba Guna">Book Now</button>
+      </form>
       </div>   
       </div> 
       </div> 
