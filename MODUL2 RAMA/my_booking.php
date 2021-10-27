@@ -80,7 +80,7 @@
                       <td><?=$checkin?></td>
                       <td><?=$checkout?></td>
                       <td><?=$gedung?></td>
-                      <td><?=$telepon?></td>
+                      <td></td>
                       <td>
                           <ul>
                               <?php

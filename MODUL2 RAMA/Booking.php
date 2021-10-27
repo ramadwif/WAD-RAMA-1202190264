@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-md-8">
                         <div class="container">
-                            <form action="my_booking.php" method="post">
+                            <form action="my_booking.php" method="get">
                                 <label for="nama">Name</label>
                                 <input type="text" readonly name="rama_1202190264" class="form-control" placeholder="rama_1202190264">
                                 <label for="event-date">Event Date</label>
@@ -74,7 +74,7 @@
                                 <br>
                                 <input type="checkbox" name="layanan[]" class="form-check-input" value="Catering"> Catering / $700
                                 <br>
-                                <input type="checkbox" name="layanan[]" class="form-check-input" value="Decoration"> Decoration / $450
+                                <input type="checkbox" name="layanan" class="form-check-input" value="Decoration"> Decoration / $450
                                 <br>
                                 <input type="checkbox" name="layanan[]" class="form-check-input" value="Sound System"> Sound System / $250
                                 <div class="d-grid">
