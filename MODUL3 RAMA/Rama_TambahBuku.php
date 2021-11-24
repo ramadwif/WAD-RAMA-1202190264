@@ -8,7 +8,7 @@
     <title>Tambah Buku</title>
   </head>
 
-  <?php
+<?php
     include('config.php');
 
     if(isset($_POST['submit'])){
@@ -35,96 +35,96 @@
         }
 
         header('Location: Rama_Home.php');
-    }    
-    
+    }        
 ?>
 
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid justify-content-between">
-                <img class="navbar-brand" src="https://drive.google.com/uc?export=view&id=1hqBNDU1Tx1RKd8wzC1bmnhwBr-7YsK23" alt="LogoEAD" style="height: 50px;">
-                <a href="Rama_TambahBuku.php" class="btn btn-primary">Tambah Buku</a>
-            </div>
-      </nav>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid justify-content-between">
+            <img class="navbar-brand" src="https://drive.google.com/uc?export=view&id=1hqBNDU1Tx1RKd8wzC1bmnhwBr-7YsK23" alt="LogoEAD" style="height: 50px;">
+            <a href="Rama_TambahBuku.php" class="btn btn-primary">Tambah Buku</a>
+        </div>
+    </nav>
 
-    <div class="mt-5 container rounded-1 shadow">
-            <p class="pt-3 pb-3 text-center" style="font-size:30px"><b>Tambah Data Buku</b></p>
-            <ul type="none">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="p-3">
-                        <li class="mb-2">
-                            <label for="judul"><b>Judul Buku</b></label><br>
-                            <input class="form-control" type="text" name="judul" id="judul" placeholder="Contoh: Pemrograman Web Bersama EAD">
-                        </li>
-                        <li class="mb-2">
-                            <label for="penulis"><b>Penulis</b></label>
-                            <input class="form-control" type="text" name="penulis" id="penulis" value="Rama_1202190264" readonly>
-                        </li>
-                        <li class="mb-2">
-                            <label for="tahun"><b>Tahun Terbit</b></label>
-                            <input class="form-control" type="text" name="tahun" id="tahun" placeholder="Contoh: 1990">
-                        </li>
-                        <li class="mb-2">
-                            <label for="desc"><b>Deskripsi</b></label>
-                            <textarea class="form-control" name="desc" id="desc" cols="30" rows="5" placeholder="Contoh: Buku ini menjelaskan tentang ..."></textarea>
-                        </li>
-                        <li class="mb-2">
-                            <label for="bahasa"><b>Bahasa</b></label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="bahasa[]" id="bahasa" value="Indonesia">
-                                <label class="form-check-label" for="Indonesia">Indonesia</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="bahasa[]" id="bahasa" value="Lainnya">
-                                <label class="form-check-label" for="Lainnya">Lainnya</label>
-                            </div>
-                        </li>
-                        <li class="mb-2">
-                            <label for="tag"><b>Tag</b></label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Pemrograman" value="Pemrograman">
-                                <label class="form-check-label" for="Pemrograman">Pemrograman</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Website" value="Website">
-                                <label class="form-check-label" for="Website">Website</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Java" value="Java">
-                                <label class="form-check-label" for="Java">Java</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="OOP" value="OOP">
-                                <label class="form-check-label" for="OOP">OOP</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="MVC" value="MVC">
-                                <label class="form-check-label" for="MVC">MVC</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Kalkulus" value="Kalkulus">
-                                <label class="form-check-label" for="Kalkulus">Kalkulus</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="tag[]" id="Lainnya" value="Lainnya">
-                                <label class="form-check-label" for="Lainnya">Lainnya</label>
-                            </div>
-                        </li>
-                        <li class="mb-2">
-                            <label for="gambar"><b>Gambar</b></label>
-                            <input class="form-control" type="file" name="gambar" id="gambar">
-                        </li>
-                        <li class="text-center mb-2">
-                            <button class="btn btn-primary" type="submit" name="submit" style="width: 300px">+ Tambah</button>
-                      </li>
-                  </div>
-              </form>
-          </ul>
-      </div>
+<div class="mt-5 container rounded-1 shadow">
+        <p class="pt-3 pb-3 text-center" style="font-size:30px"><b>Tambah Data Buku</b></p>
+        <ul type="none">
+            
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="p-3">
+                    <li class="mb-2">
+                        <label for="judul"><b>Judul Buku</b></label><br>
+                        <input class="form-control" type="text" name="judul_buku" id="judul" placeholder="Contoh: Pemrograman Web Bersama EAD">
+                    </li>
+                    <li class="mb-2">
+                        <label for="penulis"><b>Penulis</b></label>
+                        <input class="form-control" type="text" name="penulis" id="penulis" value="Rama_1202190264" readonly>
+                    </li>
+                    <li class="mb-2">
+                        <label for="tahun"><b>Tahun Terbit</b></label>
+                        <input class="form-control" type="text" name="terbit" id="tahun" placeholder="Contoh: 1990">
+                    </li>
+                    <li class="mb-2">
+                        <label for="desc"><b>Deskripsi</b></label>
+                        <textarea class="form-control" name="deskripsi" id="desc" cols="30" rows="5" placeholder="Contoh: Buku ini menjelaskan tentang ..."></textarea>
+                    </li>
+                    <li class="mb-2">
+                        <label for="bahasa"><b>Bahasa</b></label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="bahasa" id="bahasa" value="Indonesia">
+                            <label class="form-check-label" for="Indonesia">Indonesia</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="bahasa" id="bahasa" value="Lainnya">
+                            <label class="form-check-label" for="Lainnya">Lainnya</label>
+                        </div>
+                    </li>
+                    <li class="mb-2">
+                        <label for="tag"><b>Tag</b></label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="Pemrograman" value="Pemrograman">
+                            <label class="form-check-label" for="Pemrograman">Pemrograman</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="Website" value="Website">
+                            <label class="form-check-label" for="Website">Website</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="Java" value="Java">
+                            <label class="form-check-label" for="Java">Java</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="OOP" value="OOP">
+                            <label class="form-check-label" for="OOP">OOP</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="MVC" value="MVC">
+                            <label class="form-check-label" for="MVC">MVC</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="Kalkulus" value="Kalkulus">
+                            <label class="form-check-label" for="Kalkulus">Kalkulus</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tag[]" id="Lainnya" value="Lainnya">
+                            <label class="form-check-label" for="Lainnya">Lainnya</label>
+                        </div>
+                    </li>
+                    <li class="mb-2">
+                        <label for="gambar"><b>Gambar</b></label>
+                        <input class="form-control" type="file" name="gambar" id="gambar">
+                    </li>
+                    <li class="text-center mb-2">
+                        <button class="btn btn-primary" type="submit" name="submit" style="width: 300px">+ Tambah</button>
+                    </li>
+                </div>
+            </form>
+        </ul>
+    </div>
 </body>
 
 <footer class="footer nt-auto bg-light text-center p-5">
-  <a> <img src="https://drive.google.com/uc?export=view&id=1hqBNDU1Tx1RKd8wzC1bmnhwBr-7YsK23" alt="logo EAD" width="140" height="50"> </a>
+  <a> <img src="https://drive.google.com/uc?export=view&id=1hqBNDU1Tx1RKd8wzC1bmnhwBr-7YsK23" alt="logoEAD" width="140" height="50"> </a>
   <br><br><br>
       <h5><b>Perpustakaan EAD</h5>
       <h6>&copy; Rama_1202190264</h6>

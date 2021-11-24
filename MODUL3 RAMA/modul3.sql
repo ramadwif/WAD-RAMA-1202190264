@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2021 at 05:38 PM
+-- Generation Time: Nov 24, 2021 at 02:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `buku_table` (
 --
 
 INSERT INTO `buku_table` (`id_buku`, `judul_buku`, `penulis_buku`, `tahun_terbit`, `deskripsi`, `gambar`, `tag`, `bahasa`) VALUES
-(11, '', 'Rama_1202190264', 0, '', 'Pemrograman Web Priyanto Hidayatullah.png', 'Pemrograman,Website', 'Array');
+(25, 'pemograman web', 'Rama_1202190264', 1990, 'buku', 'gambar.png', 'Pemrograman, Website', 'Indonesia');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +63,7 @@ ALTER TABLE `buku_table`
 -- AUTO_INCREMENT for table `buku_table`
 --
 ALTER TABLE `buku_table`
-  MODIFY `id_buku` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_buku` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
