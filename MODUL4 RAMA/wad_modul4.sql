@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2021 at 05:17 PM
+-- Generation Time: Dec 01, 2021 at 05:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -55,7 +55,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `password`, `no_hp`) VALUES
-(4, 'asep', 'asep@mail.com', '$2y$10$Ml8vsYss7Q6s1gCrgwQ9mehtExog.IMQ0iFaot9bF9.pfDFLk/g6i', '69');
+(7, 'asep', 'asep@mail.com', '$2y$10$oTDbCtleYDVhKhM8ULl6F.hsHLOdXuxSFlGgVg.Q4L/.HnxIPfVeW', '69');
 
 --
 -- Indexes for dumped tables
@@ -87,7 +87,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
