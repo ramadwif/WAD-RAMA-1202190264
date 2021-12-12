@@ -43,8 +43,7 @@ if (isset($_POST['login'])) {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="Rama_Register.php">Register</a>
-                        </li>
+                            <a class="nav-link" href="Rama_Register.php">Register</a></li>
                         <li class="nav-item active">
                             <a class="nav-link" href="Rama_Login.php">Login<span class="sr-only">(current)</span></a>
                         </li> 

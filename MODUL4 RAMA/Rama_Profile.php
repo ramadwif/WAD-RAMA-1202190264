@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    include_once("config.php");
+
+    $bg1 = isset($_COOKIE['theme']) && ($_COOKIE['theme']['navbar'] === 'yellow') ? 'selected' : '';
+    $bg2 = isset($_COOKIE['theme']) && ($_COOKIE['theme']['navbar'] === 'dark') ? 'selected' : '';
+
+    ?>
+
+<?php
+$query = mysqli_query($conn, "SELECT * from user where email = '" . $_SESSION['email'] . "'");
+while ($TampilDetail = mysqli_fetch_assoc($query)) {
+    ?>
+
 <!DOCTYPE html>
 <html lang="eng">
     <head>
@@ -42,6 +56,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="Rama_Profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="Rama_Bookings.php">Bookings</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="Rama_Logout.php">Logout</a></li>
                             </ul>
@@ -51,55 +66,98 @@
             </div>
         </nav>
 
-    <div class="mx-auto py-10 px-5 shadow p-3 mb-5 bg-white rounded" style="width:75%; margin-top:3rem;">
-            <p class="pt-3 pb-8 text-center" style="font-size:30px" ><b>Profile</b></p>
-        <form class="form-container" action="....." method="POST">
-            <div class="form-group row">
-                <label for="Email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="Email" value="lorem@mail.com">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="Name" class="col-sm-2 col-form-label">Nama</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="Name">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="noHP" class="col-sm-2 col-form-label">Nomor Handphone</label>
-                <div class="col-sm-10">
-                <input type="number" class="form-control" id="noHP">
-                </div>
-                <hr style="color:blue" 
-            size="5px" 
-            width="97%" 
-            class="mx-auto">
-
-            </div><div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Kata Sandi</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Kata Sandi">
-                </div>
-            </div><div class="form-group row">
-                <label for="reinputPassword" class="col-sm-2 col-form-label">Konfirmasi Kata Sandi</label>
-                <div class="col-sm-10">
-                <input type="password" class="form-control" id="reinputPassword" placeholder="Konfirmasi Kata Sandi">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="navbar" class="col-sm-2 col-form-label">Warna Navbar</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="navbar">
-                </div>
-            </div>
+        <center>
+        <div class="col-md-8"
+             style="background-color: rgb(255, 255, 255); border-radius: 4px; margin-bottom: 20px; text-align: left;">
             <center>
-            <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" type="button">Simpan</button>
-            <button class="btn btn-warning" type="button" >Cancel</button>
-            </div><center>
-            </div>
-        </form>
+                <br>
+                <h2>Profile</h2>
+            </center>
+            <form action="Rama_UpdateProfile.php" method="POST">
+                <div class="row" style="padding: 20px;">
+                    <input type="hidden" name="id" id="id" value="<?php echo $TampilDetail['id']; ?>">
+                    <div class="col-md-2">
+                        <label for="exampleInputPassword1" class="form-label">Email</label>
+
+                    </div>
+                    <div class="col-md-10">
+                        <p><?php echo $TampilDetail['email']; ?></p>
+                        <input type="hidden" name="email" id="email" value="<?php echo $TampilDetail['email']; ?>">
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <div class="col-md-2">
+                        <label for="exampleInputPassword1" class="form-label">Nama</label>
+
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" value="<?php echo $TampilDetail['nama']; ?>" name="nama" id="nama"
+                               class="form-control" id="exampleInputPassword1">
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <div class="col-md-2">
+                        <label for="exampleInputPassword1" class="form-label">Nomor Handphone</label>
+
+                    </div>
+
+                    <div class="col-md-10">
+                        <input type="number" name="no_hp" id="no_hp" value="<?php echo $TampilDetail['no_hp']; ?>"
+                               class="form-control" id="exampleInputPassword1">
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="padding: 20px;">
+                    <div class="col-md-2">
+                        <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
+
+                    </div>
+                    <div class="col-md-10">
+                        <input type="password" name="password" id="password" value="" placeholder="Kata sandi..."
+                               class="form-control" id="exampleInputPassword1">
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <div class="col-md-2">
+                        <label for="exampleInputPassword1" class="form-label">Konfirmasi Kata Sandi</label>
+
+                    </div>
+                    <div class="col-md-10">
+                        <input type="password" name="confirm_password" id="confirm_password" value=""
+                               placeholder="Konfirmasi Kata Sandi" class="form-control" id="exampleInputPassword1">
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <div class="col-md-2">
+                        <label for="exampleInputPassword1" class="form-label">Warna Navbar</label>
+
+                    </div>
+                    <div class="col-md-10">
+                        <select class="form-control" id="navbar" name="navbar" required>
+                            <option value="orange" <?= $bg1 ?>">Orange Ocean</option>
+                            <option value="dark" <?= $bg2 ?>">Dark Boba</option>
+                        </select>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <div class="col-md-6">
+                        <input style="margin-left: 200px; width: 200px;" type="submit" name="update"
+                               class="btn btn-primary" value="Simpan">
+                    </div>
+                    <div class="col-md-6">
+                        <a href="Rama_Index.php"><input type="cancel" name="cancel" style="width: 200px;" value="Cancel" class="btn btn-warning"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+    </center>
+
+    <?php
+}
+?>
 </body>
 
 <div class="modal fade" id="modalSaya" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">

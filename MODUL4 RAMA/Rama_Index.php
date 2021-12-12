@@ -1,44 +1,46 @@
 <?php
-    include("config.php");
-
-    if (isset($_POST["book"])){
-      $namatempat=$_POST["namatempat"];
-      $hargatempat=$_POST["hargatempat"];
-      $tanggal=$_POST["tanggal"];
-      // mysqli_query($conn,"INSERT into booking values ('','','$namatempat','$namatempat','$hargatempat','$tanggal')");
-      // mysqli_query($conn, "insert into user values ('','$nama','$email','$password','$no_hp')");
-
-    }
-      
-  ?>
+    session_start();
+    include_once("config.php")
+    ?>
+    
+<?php if (isset($_SESSION['message'])) : ?>
+    <div class="alert alert-success" role="alert">
+        <?= $_SESSION['message']; ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php
+    unset($_SESSION['message']);
+endif;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Index</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Index</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+      </script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-            
-
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(148,192,244);">
             <div class='container' style="background-color: rgb(148,192,244);">
@@ -57,6 +59,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="Rama_Profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="Rama_Bookings.php">Bookings</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="Rama_Logout.php">Logout</a></li>
                             </ul>
@@ -91,7 +94,7 @@
             size="5px" 
             width="100%" 
             class="mx-auto">
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalPemesanan"
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#card1"
               style="width:100%">Pesan Tiket</a>
         </div>
     </div>
@@ -111,7 +114,7 @@
             size="5px" 
             width="100%" 
             class="mx-auto">
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalPemesanan"
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#card2"
               style="width:100%">Pesan Tiket</a>
         </div>
     </div>
@@ -131,37 +134,70 @@
             size="5px" 
             width="100%" 
             class="mx-auto">
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalPemesanan"
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#card3"
               style="width:100%">Pesan Tiket</a>
         </div>
     </div>
     </div>
 </div>
 
-<div class="modal fade" id="ModalPemesanan" tabindex="-1" aria-hidden="true">
+<!-- MODAL 1 -->
+    <div class="modal fade" id="card1" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form action="" method="POST">
-            <div class="modal-body">
-              <input type="hidden" name="namatempat" value="Raja Ampat">
-              <input type="hidden" name="hargatempat" value="7.000.000">
+        <form action="Rama_TambahData.php" method="POST">
+                    <input type="hidden" value="Raja Ampat" name="nama_tempat" id="nama_tempat">
+                    <input type="hidden" value="Papua" name="lokasi" id="lokasi">
+                    <input type="hidden" value="7000000" name="harga" id="harga">
+                    <label>Tanggal Booking</label>
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="date" id="date">
 
-
-              <div class="mb-3">
-                <label for="tanggal" class="form-label">Tanggal Perjalanan</label>
-                <input type="date" name="tanggal" class="form-control" id="tanggal" aria-describedby="emailHelp">
-              </div>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="Submit" name="book" class="btn btn-primary">Tambahkan</button>
-            </div>
-          </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Tambahkan" name="tambahdata" class="btn btn-primary">
+                    </div>
+                </form>
         </div>
       </div>
     </div>
 
+    <div class="modal fade" id="card2" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        <form action="Rama_TambahData.php" method="POST">
+                    <input type="hidden" value="Gunung Bromo" name="nama_tempat" id="nama_tempat">
+                    <input type="hidden" value="Malang" name="lokasi" id="lokasi">
+                    <input type="hidden" value="2000000" name="harga" id="harga">
+                    <label>Tanggal Booking</label>
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="date" id="date">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Tambahkan" name="tambahdata" class="btn btn-primary">
+                    </div>
+                </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="card3" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        <form action="Rama_TambahData.php" method="POST">
+                    <input type="hidden" value="Tanah Lot" name="nama_tempat" id="nama_tempat">
+                    <input type="hidden" value="Bali" name="lokasi" id="lokasi">
+                    <input type="hidden" value="5000000" name="harga" id="harga">
+                    <label>Tanggal Booking</label>
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" name="date" id="date">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Tambahkan" name="tambahdata" class="btn btn-primary">
+                    </div>
+                </form>
+        </div>
+      </div>
+    </div>
 
 </body>
 

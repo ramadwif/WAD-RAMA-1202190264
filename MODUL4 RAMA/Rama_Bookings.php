@@ -1,6 +1,8 @@
 <?php
-session_start();
-?>
+    session_start();
+    include("config.php")
+
+    ?>
 
 <!DOCTYPE html>
 <html lang="eng">
@@ -10,18 +12,18 @@ session_start();
         <title>Bookings</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
     </head>
     
 <body> 
@@ -42,6 +44,7 @@ session_start();
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="Rama_Profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="Rama_Bookings.php">Bookings</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="Rama_Logout">Logout</a></li>
                             </ul>
@@ -51,44 +54,58 @@ session_start();
             </div>
         </nav>
 
-        <div class="container mt-4" style="margin-bottom: 27%;">
-    <div class="card p-3">
-      <table class="table table-light table-striped">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama Tempat</th>
-            <th scope="col">Lokasi</th>
-            <th scope="col">Tanggal Perjalanan</th>
-            <th scope="col">Harga</th>
-            <th scope="col">Aksi</th>
-          </tr>
-        </thead>
+        <center>
+    <div class="col-md-10" style=" border-radius: 10px; height: 150px;">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama Tempat</th>
+                <th scope="col">Lokasi</th>
+                <th scope="col">Tanggal Perjalanan</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Aksi</th>
+            </tr>
+            </thead>
 
-        <tbody>
-          <tr>
-            <td scope="row">1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+            <?php
 
-          <tr>
-            <td scope="row">2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          
+            $user_active = $_SESSION['email'];
+            $query = "SELECT id from user WHERE email = '$user_active'";
 
-        </tbody>
-      </table>
+            $users = mysqli_query($conn, $query);
+            $user_id = 0;
+
+            while ($user = mysqli_fetch_assoc($users)) {
+                $id = $user["id"];
+            }
+
+            $Tampil = "SELECT * FROM booking WHERE id = '$id'";
+            $query = mysqli_query($conn, $Tampil);
+
+
+            $nomor = 0;
+            while ($data = mysqli_fetch_array($query)) {
+                $nomor++;
+                $hargatotal[$nomor] = $data['harga'];
+                ?>
+                <tbody>
+                <tr>
+                    <th><?php echo $nomor++; ?></th>
+                    <td><?php echo $data['nama_tempat']; ?></td>
+                    <td><?php echo $data['lokasi']; ?></td>
+                    <td><?php echo $data['tanggal']; ?></td>
+                    <td><?php echo $data['harga']; ?></td>
+                    <td>
+                    <a name="hapus" id="hapus" href="Rama_Delete.php?id_booking" 
+                      role="button" class="btn btn-sm btn-danger" data-bs-toggle="button" style="width: 75%;height: 40px">Hapus</a>
+                </tbody>
+                <?php
+            }
+            ?>
+        </table>
     </div>
-  </div>
+</center>
 
         <div class="modal fade" id="modalSaya" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
